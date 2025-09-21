@@ -29,18 +29,26 @@ app.all('/v1/:model/*', (req, res) => {
       'accept': '*/*'
     };
     
-    // 只保留 authorization 和 x-api-key 头
-    if (req.headers.authorization) {
-      headers.authorization = req.headers.authorization;
-    }
+    const allowedHeaders = new Set([
+    	'authorization',
+    	'x-api-key',
+    	'anthropic-version',
+    	'version',
+    	'openai-beta',
+    	'conversation_id',
+    	'session_id',
+    	'accept',
+    	'content-type',
+    	'chatgpt-account-id',
+    	'user-agent',
+    	'originator'
+    ]);
     
-    if (req.headers['x-api-key']) {
-      headers['x-api-key'] = req.headers['x-api-key'];
-    }
-    
-    if (req.headers['anthropic-version']) {
-      headers['anthropic-version'] = req.headers['anthropic-version'];
-    }
+    for (const key in req.headers) {
+    	if (allowedHeaders.has(key.toLowerCase())) {
+    		headers[key] = req.headers[key];
+    	}
+    };
     
     const requestOptions = {
       url: backendUrl,
