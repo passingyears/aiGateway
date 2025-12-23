@@ -13,6 +13,7 @@
 
 - Grok (x.ai)
 - Claude (Anthropic)
+- Gemini (Google)
 
 ## 使用方法
 
@@ -29,10 +30,12 @@
    例如：
    - `/v1/claude/v1/messages`
    - `/v1/grok/v1/chat/completions`
+   - `/v1/gemini/v1beta/models/gemini-2.0-flash:generateContent`
 
 3. 请求头：
    - `Authorization`: 用于认证的 Bearer token
-   - `x-api-key`: API 密钥（如果需要）
+   - `x-api-key`: API 密钥（Anthropic）
+   - `x-goog-api-key`: API 密钥（Gemini）
 
 ## 开发
 

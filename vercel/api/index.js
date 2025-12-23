@@ -6,6 +6,7 @@ const BACKEND_API_MAP = {
   "claude": "https://api.anthropic.com",
   "openai": "https://api.openai.com",
   "chatgpt": "https://chatgpt.com",
+  "gemini": "https://generativelanguage.googleapis.com",
 };
 
 const app = express();
@@ -41,7 +42,9 @@ app.all('/v1/:model/*', (req, res) => {
     	'content-type',
     	'chatgpt-account-id',
     	'user-agent',
-    	'originator'
+    	'originator',
+    	'x-goog-api-key',
+    	'x-goog-api-client'
     ]);
     
     for (const key in req.headers) {
