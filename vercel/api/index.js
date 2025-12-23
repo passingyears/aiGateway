@@ -22,7 +22,7 @@ app.all('/v1/:model/*', (req, res) => {
       return res.status(404).send(`Unsupported model: ${model}`);
     }
 
-    const backendUrl = `${baseBackendUrl}/${extraPath}`.replace(/\/+$/, '');
+    const backendUrl = `${baseBackendUrl}/${extraPath}`.replace(/\/+$/, '') + (req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '');
     
     // 只保留关键头部
     const headers = { 
