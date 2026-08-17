@@ -7,6 +7,7 @@ const BACKEND_API_MAP = {
   "openai": "https://api.openai.com",
   "chatgpt": "https://chatgpt.com",
   "gemini": "https://generativelanguage.googleapis.com",
+  "openrouter": "https://openrouter.ai",
 };
 
 const app = express();

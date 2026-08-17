@@ -14,6 +14,9 @@
 - Grok (x.ai)
 - Claude (Anthropic)
 - Gemini (Google)
+- OpenAI (api.openai.com)
+- ChatGPT (chatgpt.com)
+- OpenRouter (openrouter.ai)
 
 ## 使用方法
 
@@ -31,6 +34,7 @@
    - `/v1/claude/v1/messages`
    - `/v1/grok/v1/chat/completions`
    - `/v1/gemini/v1beta/models/gemini-2.0-flash:generateContent`
+   - `/v1/openrouter/api/v1/chat/completions`
 
 3. 请求头：
    - `Authorization`: 用于认证的 Bearer token
